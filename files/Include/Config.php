@@ -8,11 +8,11 @@
  ******************************************************************************/
 
 // Database connection constants
-$sSERVERNAME = 'sql9.freemysqlhosting.net';
+$sSERVERNAME = 'mysql2000.my-virtual-panel.com';
 $dbPort = '3306';
-$sUSER = 'sql9239838';
-$sPASSWORD = 'dZPZS2pJ4e';
-$sDATABASE = 'sql9239838';
+$sUSER = 'pfonseca_user';
+$sPASSWORD = 'iglesiacvc2018';
+$sDATABASE = 'pfonseca_church';
 
 // Root path of your ChurchCRM installation ( THIS MUST BE SET CORRECTLY! )
 //
@@ -32,7 +32,7 @@ $bLockURL = FALSE;
 
 // URL[0] is the URL that you prefer most users use when they
 // log in.  These are case sensitive.
-$URL[0] = 'http://cvccr.php0h.com/';
+$URL[0] = 'http://app.iglesiacvc.org';
 // List as many other URL's as may be needed. Number them sequentially.
 //$URL[1] = 'https://www.mychurch.org/churchcrm/';
 //$URL[2] = 'https://www.mychurch.org:8080/churchcrm/';

@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `sql9239838` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `sql9239838`;
+CREATE DATABASE  IF NOT EXISTS `pfonseca_church` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `pfonseca_church`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: sql9.freemysqlhosting.net    Database: sql9239838
+-- Host: sql9.freemysqlhosting.net    Database: pfonseca_user
 -- ------------------------------------------------------
 -- Server version	5.5.58-0ubuntu0.14.04.1
 
@@ -1660,11 +1660,11 @@ UNLOCK TABLES;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`sql9239838`@`%` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`pfonseca_user`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `email_count` AS select `email_list`.`email` AS `email`,count(0) AS `total` from `email_list` group by `email_list`.`email` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -1678,11 +1678,11 @@ UNLOCK TABLES;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`sql9239838`@`%` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`pfonseca_user`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `email_list` AS select `family_fam`.`fam_Email` AS `email`,'family' AS `type`,`family_fam`.`fam_ID` AS `id` from `family_fam` where ((`family_fam`.`fam_Email` is not null) and (`family_fam`.`fam_Email` <> '')) union select `person_per`.`per_Email` AS `email`,'person_home' AS `type`,`person_per`.`per_ID` AS `id` from `person_per` where ((`person_per`.`per_Email` is not null) and (`person_per`.`per_Email` <> '')) union select `person_per`.`per_WorkEmail` AS `email`,'person_work' AS `type`,`person_per`.`per_ID` AS `id` from `person_per` where ((`person_per`.`per_WorkEmail` is not null) and (`person_per`.`per_WorkEmail` <> '')) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;

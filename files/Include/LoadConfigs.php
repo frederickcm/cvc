@@ -50,7 +50,7 @@ function buildConnectionManagerConfig($sSERVERNAME, $sDATABASE, $sUSER, $sPASSWO
         'user' => $sUSER,
         'password' => $sPASSWORD,
         'settings' => [
-            'charset' => 'utf8mb4',
+            'charset' => 'utf8',
             'queries' => ["SET sql_mode=(SELECT REPLACE(REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''),'NO_ZERO_DATE',''))"],
         ],
         'classname' => $dbClassName,
@@ -72,20 +72,17 @@ SystemURLs::checkAllowedURL($bLockURL, $URL);
 // Due to mysqli handling connections on 'localhost' via socket only, we need to tease out this case and handle
 // TCP/IP connections separately defaulting $dbPort to 3306 for the general case when$dbPort is not set.
 if ($sSERVERNAME == "localhost") {
-    $cnInfoCentral = mysqli_connect($sSERVERNAME, $sUSER, $sPASSWORD)
-    or system_failure('Could not connect to MySQL on <strong>'.$sSERVERNAME.'</strong> as <strong>'.$sUSER.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
+    $cnInfoCentral = mysqli_connect($sSERVERNAME, $sUSER, $sPASSWORD,$sDATABASE);
 } else {
     if (!isset($dbPort)) {
         $dbPort=3306;
     }
-    $cnInfoCentral = mysqli_connect($sSERVERNAME.':'.$dbPort, $sUSER, $sPASSWORD)
-        or system_failure('Could not connect to MySQL on <strong>'.$sSERVERNAME.'</strong> on port <strong>'.$dbPort.'</strong> as <strong>'.$sUSER.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
+    $cnInfoCentral = mysqli_connect($sSERVERNAME, $sUSER, $sPASSWORD,$sDATABASE);
 }
 
 mysqli_set_charset($cnInfoCentral, 'utf8mb4');
 
-mysqli_select_db($cnInfoCentral, $sDATABASE)
-or system_failure('Could not connect to the MySQL database <strong>'.$sDATABASE.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
+mysqli_select_db($cnInfoCentral, $sDATABASE);
 
 // Initialize the session
 session_cache_limiter('private_no_expire:');
